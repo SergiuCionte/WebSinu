@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSinu</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">WebSinu</a>
+</nav>
+
+<div class="container mt-5">
+  <h2>Materii</h2>
+
+  <table class="table table-bordered mt-3">
+    <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Examen List</th>
+      <th>Nume Profesor</th>
+      <th>Action</th> <!-- New column for delete action -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Filter materie list based on the specific username -->
+    <th:block th:each="user : ${users}">
+      <th:block th:if="${user.id == idProf}">
+        <th:block th:if="${user.role == 'PROFESOR'}">
+          <th:block th:each="materie : ${user.materieList}">
+            <tr>
+              <td th:text="${materie.materie_id}"></td>
+              <td th:text="${materie.nume_materie}"></td>
+              <td th:if="${materie.examen != null}" th:text="${materie.examen.examen_subject}">N/A</td>
+              <td th:unless="${materie.examen != null}">N/A</td>
+              <td th:text="${user.username}"></td>
+              <td>
+                <!-- Only display the edit button if materie.examen is not null -->
+                <th:block th:if="${materie.examen != null}">
+                  <form th:action="@{/create-notaexamen}" method="post">
+                    <input type="hidden" name="examen.examen_id" th:value="${materie.examen.examen_id}">
+                    <label for="userId">User ID:</label>
+                    <input type="text" class="form-control" id="userId" name="user.id" placeholder="Enter User ID" required>
+                    <label for="calificativ_examen">Calificativ Examen</label>
+                    <input type="number" class="form-control" id="calificativ_examen" name="calificativ_examen" placeholder="Enter Calificativ Examen " required>
+                    <button type="submit" class="btn btn-primary">Create Nota Examen</button>
+                  </form>
+                </th:block>
+              </td>
+            </tr>
+          </th:block>
+        </th:block>
+        <th:block th:unless="${user.role == 'PROFESOR'}">
+          <tr>
+            <div class="alert alert-danger" role="alert">User is not a PROFESOR</div>
+          </tr>
+        </th:block>
+      </th:block>
+    </th:block>
+    </tbody>
+  </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

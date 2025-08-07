@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image:url('student.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .header {
+    background-color: #343a40;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  .container {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .big-title {
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-custom {
+    font-size: 1.5em;
+    margin-top: 20px;
+    width: 200px;
+    border-radius: 25px;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-custom:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-custom:focus {
+    outline: none;
+    background-color: #0056b3;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-custom:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+</style>
+<head>
+  <meta charset="UTF-8">
+  <title>WebSinu</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">WebSinu</a>
+</nav>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <h1 class="text-center">WebSinu</h1>
+      <div class="text-center">
+
+
+        <form action="/view-all-usersfrom-materie" method="get">
+          <label for="idProf">Username:</label>
+          <input type="text" id="idProf" name="idProf"> <!-- Corrected name attribute -->
+          <button type="submit" class="btn btn-custom btn-lg">Management</button>
+        </form>
+
+        <form action="/generate-csv" method="post">
+          <label for="idProf">Username:</label>
+          <input type="text" id="userIdStudent" name="userIdStudent"> <!-- Corrected name attribute -->
+          <button type="submit" class="btn btn-custom btn-lg">Generate Csv</button>
+        </form>
+
+        <form action="/generate-txt" method="post">
+          <label for="idProf">Username:</label>
+          <input type="text" id="userIdStudentt" name="userIdStudentt"> <!-- Corrected name attribute -->
+          <button type="submit" class="btn btn-custom btn-lg">Generate Txt</button>
+        </form>
+
+        <form action="/generate-pdf" method="post">
+          <label for="idProf">Username:</label>
+          <input type="text" id="userIdStudenttt" name="userIdStudenttt"> <!-- Corrected name attribute -->
+          <button type="submit" class="btn btn-custom btn-lg">Generate Pdf</button>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

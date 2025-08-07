@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSinu</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">WebSinu</a>
+</nav>
+
+<div class="container mt-5">
+  <h2>Edit User </h2>
+
+  <form th:action="@{/save-updated-user}" method="post">
+    <!-- Display existing user details -->
+    <input type="hidden" name="id" th:value="${user.id}">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="parola">Parola</label>
+      <input type="password" id="parola" name="parola" class="form-control" placeholder="Enter Password" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" required/>
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <input type="role" id="role" name="role" class="form-control" placeholder="Enter Role" required/>
+    </div>
+
+
+    <!-- Materie Information -->
+    <fieldset>
+      <legend>Materie Information</legend>
+
+      <div class="form-group">
+        <label for="materieId1">Materie ID 1:</label>
+        <input type="number" class="form-control" id="materieId1" name="materieList[0].materie_id" placeholder="Enter Materie ID 1" required/>
+      </div>
+
+
+      <div class="form-group">
+        <label for="materieId2">Materie ID 2:</label>
+        <input type="number" class="form-control" id="materieId2" name="materieList[1].materie_id" placeholder="Enter Materie ID 2" required/>
+      </div>
+
+
+      <div class="form-group">
+        <label for="materieId3">Materie ID 3:</label>
+        <input type="number" class="form-control" id="materieId3" name="materieList[2].materie_id" placeholder="Enter Materie ID 3" required/>
+      </div>
+
+
+      <div class="form-group">
+        <label for="materieId4">Materie ID 4:</label>
+        <input type="number" class="form-control" id="materieId4" name="materieList[3].materie_id" placeholder="Enter Materie ID 4" required/>
+      </div>
+
+
+      <div class="form-group">
+        <label for="materieId5">Materie ID 5:</label>
+        <input type="number" class="form-control" id="materieId5" name="materieList[4].materie_id" placeholder="Enter Materie ID 5" required/>
+      </div>
+
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
+``

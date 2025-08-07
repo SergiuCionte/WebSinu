@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create User</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">WebSinu</a>
+
+  <!-- Toggler/collapsible Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/users}">WebSinu</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Create User</h2>
+  <form action="/create-user" method="POST">
+    <fieldset>
+      <legend>Personal Information</legend>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" required>
+      </div>
+
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="parola" placeholder="Enter Password" required>
+      </div>
+      <div class="form-group">
+        <label for="userRole">Role:</label>
+        <input type="text" class="form-control" id="userRole" name="role" placeholder="Enter Role" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" >
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Materie Information</legend>
+      <div class="form-group">
+        <label for="materieId1">Materie ID 1:</label>
+        <input type="number" class="form-control" id="materieId1" name="materieList[0].materie_id" placeholder="Enter Materie ID 1" required>
+      </div>
+
+      <div class="form-group">
+        <label for="materieId2">Materie ID 2:</label>
+        <input type="number" class="form-control" id="materieId2" name="materieList[1].materie_id" placeholder="Enter Materie ID 2" required>
+      </div>
+
+      <div class="form-group">
+        <label for="materieId3">Materie ID 3:</label>
+        <input type="number" class="form-control" id="materieId3" name="materieList[2].materie_id" placeholder="Enter Materie ID 3" required>
+      </div>
+
+      <div class="form-group">
+        <label for="materieId4">Materie ID 4:</label>
+        <input type="number" class="form-control" id="materieId4" name="materieList[3].materie_id" placeholder="Enter Materie ID 4" required>
+      </div>
+
+      <div class="form-group">
+        <label for="materieId5">Materie ID 5:</label>
+        <input type="number" class="form-control" id="materieId5" name="materieList[4].materie_id" placeholder="Enter Materie ID 5" required>
+      </div>
+
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <form action="/view-all-users" method="get">
+    <button type="submit" class="btn btn-primary">View All Users</button>
+  </form>
+  <div th:if="${errorMessage}" class="error">
+    <span th:text="${errorMessage}"></span>
+  </div>
+</div>
+
+</body>
+</html>

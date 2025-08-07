@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Nota Examen</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Create Nota Examen</h2>
+    <form action="/create-notaexamen" method="POST">
+
+        <div class="form-group">
+            <label for="nota_examen_id">Nota Examen ID:</label>
+            <input type="number" class="form-control" id="nota_examen_id" name="nota_examen_id" >
+        </div>
+        <div class="form-group">
+            <label for="calificativ_examen">Calificativ Examen:</label>
+            <input type="text" class="form-control" id="calificativ_examen" name="calificativ_examen">
+        </div>
+        <div class="form-group">
+            <label for="examen_id">Examen Id:</label>
+            <input type="text" class="form-control" id="examen_id" name="examen.examen_id">
+        </div>
+        <div class="form-group">
+            <label for="user_id">User Id:</label>
+            <input type="text" class="form-control" id="user_id" name="user.id">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+    <div th:if="${errorMessage}" class="error">
+        <span th:text="${errorMessage}"></span>
+    </div>
+</div>
+
+</body>
+</html>

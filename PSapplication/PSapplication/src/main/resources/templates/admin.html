@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image:url('administrator.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .header {
+        background-color: #343a40;
+        padding: 20px 0;
+        color: #fff;
+        text-align: center;
+    }
+
+    .container {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .big-title {
+        font-size: 3em;
+        margin-bottom: 50px;
+        color: #333;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-custom {
+        font-size: 1.5em;
+        margin-top: 20px;
+        width: 200px;
+        border-radius: 25px;
+        background-color: #007bff;
+        color: #fff;
+        transition: background-color 0.3s ease;
+        border: none;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-custom:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-custom:focus {
+        outline: none;
+        background-color: #0056b3;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-custom:active {
+        transform: translateY(2px);
+        box-shadow: none;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>WebSinu</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40 !important; /* Dark grey background */
+        }
+
+        .navbar-brand {
+            color: #ffffff !important; /* White text */
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff !important; /* White text */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff !important; /* Blue text on hover */
+        }
+
+        .btn-custom {
+            background-color: #007bff !important; /* Blue button */
+            color: #ffffff !important; /* White text */
+            margin-top: 10px;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3 !important; /* Dark blue button on hover */
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">WebSinu</a>
+
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/users}">User Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <h1 class="text-center mb-4">User Management</h1>
+            <div class="text-center">
+                <form action="/createPage" method="get">
+                    <button type="submit" class="btn btn-custom btn-lg mr-2">Create User</button>
+                </form>
+                <form action="/view-all-users" method="get">
+                    <button type="submit" class="btn btn-custom btn-lg mr-2">Manage Users</button>
+                </form>
+                <form action="/createPageMaterie" method="get">
+                    <button type="submit" class="btn btn-custom btn-lg mr-2">Create Materie</button>
+                </form>
+                <form action="/view-all-materie" method="get">
+                    <button type="submit" class="btn btn-custom btn-lg mr-2">Manage Materie</button>
+                </form>
+
+                <form action="/createPageExamen" method="get">
+                    <button type="submit" class="btn btn-custom btn-lg">Create Examen</button>
+                </form>
+                <form action="/view-all-examene" method="get">
+                    <button type="submit" class="btn btn-custom btn-lg mr-2">Manage Examen</button>
+                </form>
+                <form action="/view-all-nota-examen" method="get">
+                    <button type="submit" class="btn btn-custom btn-lg mr-2">Manage Nota Examen</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+

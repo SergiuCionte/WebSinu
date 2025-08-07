@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSinu</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">WebSinu</a>
+</nav>
+
+<div class="container mt-5">
+  <h2>Materii</h2>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+
+      <th>Examen List</th>
+      <th>User List</th>
+      <th>Action</th> <!-- New column for delete action -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over the list of users with role=ADMIN -->
+    <tr th:each="materie : ${materii}" >
+      <td th:text="${materie.materie_id}"></td>
+      <td th:text="${materie.nume_materie}"></td>
+      <td th:if="${materie.examen != null}" th:text="${materie.examen.examen_subject}"></td>
+      <td th:unless="${materie.examen != null}">N/A</td>
+
+
+
+      <td>
+        <!-- Iterate over the materieList for each user -->
+        <ul>
+          <li th:each="user : ${materie.userList}" th:text="${user.username}"></li>
+        </ul>
+      </td>
+
+      <td>
+        <form th:action="@{/delete-materie}" method="post">
+          <input type="hidden" name="materieIdToDelete" th:value="${materie.materie_id}">
+          <button type="submit" class="btn btn-danger">Delete</button>
+
+        </form>
+
+        <form th:action="@{/edit-materie}" method="get">
+          <input type="hidden" name="materieId" th:value="${materie.materie_id}">
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div th:if="${errorMessage}" class="error">
+    <span th:text="${errorMessage}"></span>
+  </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

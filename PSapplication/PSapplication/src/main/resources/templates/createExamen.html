@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Examen</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">WebSinu</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/users}">WebSinu</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Create Examen</h2>
+  <form action="/create-examen" method="POST">
+
+
+    <div class="form-group">
+      <label for="examen_subject">Examen Name:</label>
+      <input type="text" class="form-control" id="examen_subject" name="examen_subject">
+    </div>
+
+    <div class="form-group">
+      <label for="materieId">Materie Id:</label>
+      <input type="number" class="form-control" id="materieId" name="materie.materie_id" >
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+  <div th:if="${errorMessage}" class="error">
+    <span th:text="${errorMessage}"></span>
+  </div>
+</div>
+
+</body>
+</html>
